@@ -137,13 +137,13 @@ class HomeScreen extends StatelessWidget {
     for (final iButton in IterableZip([iconsName, buttonsName])) {
       icons.add(Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-          child: Image.asset(iButton[0], width: 100, height: 100)));
+          child: Image.asset(iButton[0], width: 75, height: 75)));
       buttons.add(Padding(
         padding: const EdgeInsets.all(25),
         child: SizedBox(
             height: 50,
             child: ElevatedButton(
-                child: Text(iButton[1]),
+                child: Text(iButton[1], style: const TextStyle(fontSize: 25),),
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => const Catto()));
