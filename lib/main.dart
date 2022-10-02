@@ -11,8 +11,15 @@ class BmtcApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: BmtcHomepage(),
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.deepOrange,
+        appBarTheme: const AppBarTheme(
+          iconTheme: IconThemeData(color: Colors.black),
+          color: Colors.orangeAccent, //<-- SEE HERE
+        ),
+      ),
+      home: const BmtcHomepage(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -120,17 +127,19 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<String> iconsName = [
       "TripPlanner.jpeg",
-      "recharge.jpeg",
+      "RouteMap.jpeg",
       "fare.jpeg",
       "bus.jpeg",
-      "live.jpeg"
+      "live.jpeg",
+      "recharge.jpeg"
     ];
     List<String> buttonsName = [
       "Trip Planner",
-      "Recharge/Bus Pass",
+      "Route Map",
       "Fare",
       "Nearby Bus Stop",
-      "Live Tracking"
+      "Live Tracking",
+      "Recharge/Bus Pass"
     ];
     List<Padding> icons = <Padding>[];
     List<Padding> buttons = <Padding>[];
