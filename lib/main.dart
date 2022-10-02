@@ -49,10 +49,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  String validatePassword(String password, String usrName) {
-    return "Always valid lol";
-  }
-
   final _formkey = GlobalKey<FormState>();
 
   TextFormField passwordField = TextFormField(
@@ -122,44 +118,63 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> icons = [
+    List<String> iconsName = [
+      "TripPlanner.jpeg",
       "recharge.jpeg",
       "fare.jpeg",
-      "TripPlanner.jpeg",
       "bus.jpeg",
       "live.jpeg"
     ];
-    List<String> buttons = [
+    List<String> buttonsName = [
+      "Trip Planner",
       "Recharge/Bus Pass",
       "Fare",
-      "Trip Planner",
       "Nearby Bus Stop",
       "Live Tracking"
     ];
-    List<Row> entries = [];
-    for (final iButton in IterableZip([icons, buttons])) {
-      entries.add(Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            child: Image.asset(iButton[0], width: 50, height: 50)),
-        Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+    List<Padding> icons = <Padding>[];
+    List<Padding> buttons = <Padding>[];
+    for (final iButton in IterableZip([iconsName, buttonsName])) {
+      icons.add(Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+          child: Image.asset(iButton[0], width: 100, height: 100)));
+      buttons.add(Padding(
+        padding: const EdgeInsets.all(25),
+        child: SizedBox(
+            height: 50,
             child: ElevatedButton(
                 child: Text(iButton[1]),
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => const Catto()));
-                }))
-      ]));
+                })),
+      ));
     }
     return Scaffold(
       appBar: AppBar(
         title: const Text('BMTC Route Finder'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: entries,
+      body: Padding(
+        padding: const EdgeInsets.only(left: 50),
+        child: Center(
+          child: IntrinsicHeight(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: icons,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: buttons,
+                )
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -173,6 +188,15 @@ class Catto extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: const Text("TODO")),
-        body: Center(child: Image.asset('cat.webp')));
+        body: Center(child: Image.asset('opening.png')));
+  }
+}
+
+class FareScreen extends StatelessWidget {
+  const FareScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
