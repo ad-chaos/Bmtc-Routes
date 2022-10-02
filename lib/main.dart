@@ -62,7 +62,12 @@ class _LoginScreenState extends State<LoginScreen> {
       labelText: 'Password',
     ),
     validator: (input) {
-      return "always false lol";
+      if (input == "") {
+        return "Can't be null mate :)";
+      } else if (input == "password" || input == "Password") {
+        return "Bruh, you serious?";
+      }
+      return null;
     },
   );
   TextFormField usernameField = TextFormField(
@@ -71,7 +76,10 @@ class _LoginScreenState extends State<LoginScreen> {
       labelText: 'Username',
     ),
     validator: (input) {
-      return "always false lol";
+      if (input == "") {
+        return "You Sure you don't have a name?";
+      }
+      return null;
     },
   );
 
@@ -93,9 +101,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: ElevatedButton(
                   onPressed: () {
-                    if(_formkey.currentState!.validate()) {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const Catto()));}
+                    if (_formkey.currentState!.validate()) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomeScreen()));
+                    }
                   },
                   child: const Text('Login'),
                 )),
@@ -105,6 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+
 /*
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
