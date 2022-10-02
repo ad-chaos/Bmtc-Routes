@@ -200,12 +200,3 @@ class Catto extends StatelessWidget {
         body: Center(child: Image.asset('opening.png')));
   }
 }
-
-class FareScreen extends StatelessWidget {
-  const FareScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
