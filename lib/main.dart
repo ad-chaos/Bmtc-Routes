@@ -41,62 +41,71 @@ class SplashScreenState extends State<BmtcHomepage> {
   }
 }
 
-class LLoginScreen extends StatefulWidget {
-  const LLoginScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  State<LLoginScreen> createState() => _LLoginScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LLoginScreenState extends State<LLoginScreen> {
-  String password = "Password";
+class _LoginScreenState extends State<LoginScreen> {
+  String validatePassword(String password, String usrName) {
+    return "Always valid lol";
+  }
+
+  final _formkey = GlobalKey<FormState>();
+
+  TextFormField passwordField = TextFormField(
+    obscureText: true,
+    decoration: const InputDecoration(
+      border: UnderlineInputBorder(),
+      labelText: 'Password',
+    ),
+    validator: (input) {
+      return "always false lol";
+    },
+  );
+  TextFormField usernameField = TextFormField(
+    decoration: const InputDecoration(
+      border: UnderlineInputBorder(),
+      labelText: 'Username',
+    ),
+    validator: (input) {
+      return "always false lol";
+    },
+  );
+
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _password = TextEditingController();
-    final TextEditingController _username = TextEditingController();
     return Scaffold(
       appBar: AppBar(title: const Text('BMTC Route Finder')),
-      body: Center(
-        child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-          Container(
-            constraints: const BoxConstraints(maxWidth: 500),
-            child: TextFormField(
-              controller: _username,
-              decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
-                labelText: 'Username',
-              ),
-            ),
-          ),
-          Container(
-            constraints: const BoxConstraints(maxWidth: 500),
-            child: TextFormField(
-              controller: _password,
-              obscureText: true,
-              decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
-                labelText: 'Password',
-              ),
-            ),
-          ),
-          Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              child: ElevatedButton(
-                onPressed: (String enteredPassword) {
-                  if (enteredPassword == "Password") {
-                    // TODO: Handle password checking using a proper function and not a closure
-                  }
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
-                }(_password.text),
-                child: const Text('Login'),
-              )),
-        ]),
+      body: Form(
+        key: _formkey,
+        child: Center(
+          child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+            Container(
+                constraints: const BoxConstraints(maxWidth: 500),
+                child: usernameField),
+            Container(
+                constraints: const BoxConstraints(maxWidth: 500),
+                child: passwordField),
+            Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                child: ElevatedButton(
+                  onPressed: () {
+                    if(_formkey.currentState!.validate()) {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const Catto()));}
+                  },
+                  child: const Text('Login'),
+                )),
+          ]),
+        ),
       ),
     );
   }
 }
-
+/*
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -134,17 +143,19 @@ class LoginScreen extends StatelessWidget {
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomeScreen()));
                   },
                 )),
           ]),
         ));
   }
 }
-
+*/
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
