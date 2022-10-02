@@ -69,6 +69,8 @@ class _LoginScreenState extends State<LoginScreen> {
         return "Can't be null mate :)";
       } else if (input == "password" || input == "Password") {
         return "Bruh, you serious?";
+      } else if (input != "losers:)") {
+        return "Wrong Password!";
       }
       return null;
     },
@@ -81,6 +83,8 @@ class _LoginScreenState extends State<LoginScreen> {
     validator: (input) {
       if (input == "") {
         return "You Sure you don't have a name?";
+      } else if (input != "MaverickLegends") {
+        return "Incorrect Username";
       }
       return null;
     },
@@ -268,4 +272,3 @@ class Recharge extends StatelessWidget {
         body: Center(child: Image.asset('RechargeWidget.png')));
   }
 }
-

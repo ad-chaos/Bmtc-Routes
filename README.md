@@ -4,13 +4,12 @@ Find bmtc Bus routes seamlessly
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+```bash
+flutter run -d chrome
+```
+Then, inspect element and choose an `iphone 12 Pro` for the dimensions.
+- Username: `MaverickLegends`
+- Password: `losers:)`
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Note:
+This is a submission for the PESU ECC hackathon.
