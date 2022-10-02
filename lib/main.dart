@@ -117,55 +117,6 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-/*
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    const double maxWidth = 500;
-
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('BMTC Route Finder'),
-        ),
-        body: Center(
-          child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-            Container(
-              constraints: const BoxConstraints(maxWidth: maxWidth),
-              child: TextFormField(
-                decoration: const InputDecoration(
-                  border: UnderlineInputBorder(),
-                  labelText: 'Username',
-                ),
-              ),
-            ),
-            Container(
-              constraints: const BoxConstraints(maxWidth: maxWidth),
-              child: TextFormField(
-                obscureText: true,
-                decoration: const InputDecoration(
-                  border: UnderlineInputBorder(),
-                  labelText: 'Password',
-                ),
-              ),
-            ),
-            Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                child: ElevatedButton(
-                  child: const Text('Login'),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomeScreen()));
-                  },
-                )),
-          ]),
-        ));
-  }
-}
-*/
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
