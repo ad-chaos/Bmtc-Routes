@@ -16,7 +16,7 @@ class BmtcApp extends StatelessWidget {
         primarySwatch: Colors.deepOrange,
         appBarTheme: const AppBarTheme(
           iconTheme: IconThemeData(color: Colors.black),
-          color: Colors.orangeAccent, //<-- SEE HERE
+          color: Colors.orangeAccent,
         ),
       ),
       home: const BmtcHomepage(),
@@ -152,7 +152,10 @@ class HomeScreen extends StatelessWidget {
         child: SizedBox(
             height: 50,
             child: ElevatedButton(
-                child: Text(iButton[1], style: const TextStyle(fontSize: 25),),
+                child: Text(
+                  iButton[1],
+                  style: const TextStyle(fontSize: 25),
+                ),
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => const Catto()));
